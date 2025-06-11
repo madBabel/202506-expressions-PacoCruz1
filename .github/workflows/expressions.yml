@@ -53,7 +53,7 @@ jobs:
               env: 
                 OVERWRITTEN: 'Overwritten at step level'
               run: |
-                echo: 'Overwritten var: $OVERWRITTEN'
+                echo 'Overwritten var: $OVERWRITTEN'
 
     functions-pr-data:
         runs-on: ubuntu-latest
