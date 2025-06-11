@@ -27,16 +27,16 @@ jobs:
            OVERWRITTEN: "Overwritten at job level"
         
         steps:
-            - if: ${{ inputs.debug ==  true }}
-              name: '[Debug] Print Debug Info'
+            - name: '[Debug] Print Debug Info'
+              if: ${{ inputs.debug }}
               run: |
                 echo 'Triggered by: ${{ github.event_name }}'
                 echo 'Branch: ${{ github.ref }}" 
                 echo "Commit SHA: ${{ github.sha }}"
                 echo  "Runner OS: ${{ runner.os }}"
 
-            - if: ${{ inputs.debug == true && github.ref_name == 'main' }}
-              name: '[Debug] Triggered from Main'
+            - name: '[Debug] Triggered from Main'
+              if: ${{ inputs.debug == true && github.ref_name == 'main' }}
               run: |
                 echo 'Triggered from main branch!'
 
@@ -47,7 +47,7 @@ jobs:
                 echo 'Step var: ${{ env.STEP_VAR }}'
                 echo 'Job var: ${{ env.JOB_VAR }}'
                 echo 'Workflow var: ${{ env.WORKFLOW_VAR }}'
-                echo 'Overwritten: ${{ env.OVERWRITTEN }}''
+                echo 'Overwritten: ${{ env.OVERWRITTEN }}'
                 
             - name: 'Overwrite and Print' 
               env: 
