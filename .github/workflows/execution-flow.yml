@@ -18,7 +18,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: running unit test
-              run: echo running test'
+              run: echo 'running test'
 
             - name: falling test
               if: ${{ inputs.passUnitTest == false}}
